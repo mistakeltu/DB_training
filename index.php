@@ -21,9 +21,18 @@ $types = [
     3 => 'Palmes'
 ];
 
+// $sql = "
+//     SELECT id, title, height, type
+//     FROM trees
+//     ORDER BY height DESC
+// ";
+
+//Filtravimas
 $sql = "
     SELECT id, title, height, type
     FROM trees
+    WHERE height > 10
+    ORDER BY height DESC
 ";
 
 $stmt = $pdo->query($sql);
@@ -135,7 +144,7 @@ $trees = $stmt->fetchAll();
         </form>
     </fieldset>
 
-    <!-- <fieldset>
+    <fieldset>
         <legend>Grow Tree</legend>
         <form action="edit.php" method="post">
             <div>
@@ -163,7 +172,7 @@ $trees = $stmt->fetchAll();
                 <button type="submit">Cut</button>
             </div>
         </form>
-    </fieldset> -->
+    </fieldset>
 </body>
 
 </html>

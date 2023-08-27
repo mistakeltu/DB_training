@@ -16,11 +16,11 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 
 
 $sql = "
-    INSERT INTO trees (`title`, `height`, `type`)
-    VALUES (?, ?, ?) 
+    DELETE FROM trees
+    WHERE id = ?
 ";
 
 $stmt = $pdo->prepare($sql);
-$stmt->execute([$_POST['title'], $_POST['height'], $_POST['type']]);
+$stmt->execute([$_POST['id']]);
 
 header('Location: http://localhost/DB_training/');
